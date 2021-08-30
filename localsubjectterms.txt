@@ -1,2 +1,264 @@
-subject terms to index
-oneperline
+ability
+absence of agreement
+adjective
+adjunct
+adjunct clause
+adpositional
+adverb
+adverial
+agent
+agreement
+anaphora
+anaphoric
+animacy
+antecedent
+argument
+article
+assimilation of consonants
+astgè
+attributive
+augmentative
+auxiliary
+bare
+bátar
+beneficiary
+calendar
+cardinal
+cataphorically
+causal
+causal clause
+causative
+circumposition
+close front rounded
+collective
+comitative
+comparative
+comparative clause
+complex preposition
+complex sentence
+compound nouns
+compound tense
+compounding of nouns
+concessive clause
+conditional
+conditional clause
+conjoining
+conjoining of nouns
+consecutive
+consonant clusters
+consonants
+contact languages
+content question
+contracted
+contrastive focus
+coordiantion
+coordinating conjunction
+copulative verb
+counter-factuality
+dá
+dative marker
+dative pronoun
+definite article
+definite dative article
+definite pronoun
+degrees of comparison
+demonstrative
+demonym
+derivation
+determiner
+dí
+diminutive
+diphthong
+direct conditional
+direct object
+directive speech act
+distal
+ditransitive
+doubly-compound
+duaj
+dumandá
+dynamic passive
+elative
+ending
+epenthetic
+epistemic modality
+èssar
+exclamative sentence
+existential verb
+expletive
+fá
+finí
+finite categories
+focalise
+forms of the adjective
+fraction
+free indirect speech
+fugí
+future
+gender
+generic
+generic noun phrase
+gerund
+gidá
+glides
+gudaj
+habitual
+hiatus
+human
+í
+imperative sentence
+imperfect
+imperfect indicative
+imperfect subjunctive
+impersonal
+impersonal passive
+inchoative
+indefinite article
+indefinite determiner
+indefinite pronoun
+indicative mood
+indirect conditional
+indirect interrogative clause
+indirect object
+infinitival
+infinitive
+instead of
+instrumental
+intensifier
+intensive personal pronoun
+interrogative sentence
+interrogative word
+intransitive
+inverted subject
+ir
+ira
+irregular plural
+irregular verb
+locative
+long vowel
+magljè
+manner adjuncts
+manner adjverb
+manner clause
+modal adverb
+modal verb
+mono
+monotransitive
+morphological processes
+motion verb
+munglá
+names of the days
+names of the months
+natural gender
+negation
+negative adverb
+nominalise
+nonfinite
+non-human
+noun
+noun phrase
+number
+numeral
+object clause
+obligation
+omission
+order of the arguments
+ordinal numeral
+paired body terms
+palatalisation
+particle verb
+parts of the day
+parvaj
+passive
+passivise
+past participle
+path
+perfect indicative
+perfect subjunctive
+permanent state
+permission
+personal ending
+personal pronoun
+phonology
+place name
+pluperfect indicative
+pluperfect subjunctive
+polar question
+polite
+possessive
+possessive determiner
+possessive pronoun
+predicative
+predicative
+prèndar
+prepositional phrase
+present indicative
+present subjunctive
+prohibitive
+pronoun
+proximal
+pudaj
+purposive clause
+quantifier
+quantifying
+quantifying
+recipient
+reciprocal
+reduced vowel
+reduplication
+reflexive
+reflexive verb
+relative clause
+relativiser
+rí
+sadastadá
+savaj
+schá
+ṣchaj
+schè
+simple sentence
+simple tense
+source
+spelling system
+stá
+stative passive
+stative veb
+stem alteration
+structure of the noun phrase
+stuaj
+subject
+subject clause
+subject inversion
+subjunctive mood
+subordinating conjunction
+subordination
+superlative
+syllabic
+syllable structure
+syncretism
+tanaj
+temporal
+temporal adjunct
+temporal argument
+temporal clause
+temporal noun
+tense agreement
+topicalise
+trá
+tumaj
+tut tga
+unmarked
+vagní
+vaj
+vaj da
+vasaj
+verb
+verb phrase
+verbs of opinion
+verb-second
+voice
+voiceless
+volition
+vowels
+vulaj
+word formation

@@ -37,6 +37,11 @@ main.snd: main.bbl
 	sed -i 's/.*committee.*//' main.adx
 	sed -i 's/.*government.*//' main.adx
 	sed -i 's/\\MakeCapital//' main.adx
+	sed -i 's/\\textsc {//' main.sdx
+	sed -i 's/\\textit {//' main.sdx
+	sed -i 's/\\textbf {//' main.sdx
+	sed -i 's/}}|/|/' main.sdx
+	sed -i 's/}|/|/' main.sdx
 	python3 fixindex.py
 	mv mainmod.adx main.adx
 	makeindex -o main.and main.adx
@@ -68,7 +73,7 @@ githubrepo: localmetadata.tex proofreading versions.json
 	
 versions.json: 
 	grep "^.title{" localmetadata.tex|grep -o "{.*"|egrep -o "[^{}]+">title
-	grep "^.author{" localmetadata.tex|grep -o "{.*"|egrep -o "[^{}]+" |sed 's/\\\(last\)\?and/"},{"name":"/g'>author
+	grep "^.author{" localmetadata.tex|grep -o "{.*"|egrep -o "[^{}]+" |sed 's/ and /"},{"name":"/g'>author
 	echo '{"versions": [{"versiontype": "proofreading",' >versions.json
 	echo -n '		"title": "' >>versions.json
 	echo -n `cat title` >> versions.json

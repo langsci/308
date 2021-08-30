@@ -80,7 +80,7 @@ class Record():
   """
 
 
-  def __init__(self,s,fromfile=False,inkeysd={},restrict=False,reporting=[]):
+  def __init__(self,s,bibtexformat=False,inkeysd={},restrict=False,reporting=[]):
     """
     :param s: the bibtexrecord as a string
     :type s: string or unicode
@@ -91,8 +91,7 @@ class Record():
     """
     self.errors = [] #accumulates all error messages
     self.reporting = []
-
-    if fromfile: #get record from a file
+    if bibtexformat: #get record from a file
         m = re.match(bibpatterns.TYPKEYFIELDS,s)
         try:
             self.typ = m.group(1).lower()
@@ -114,6 +113,14 @@ class Record():
                     )
                 ]
                     )
+
+            fieldaliases = (("location", "address"), ("date", "year"), ("journaltitle", "journal"))
+            for old, new in fieldaliases:
+                if self.fields.get(old) and not self.fields.get(new):
+                    self.fields[new] = self.fields[old]
+                    del self.fields[old]
+
+
         except IndexError:
             print(s)
         #store keys
@@ -238,7 +245,7 @@ class Record():
         andcount = creator.count(' and ')
         ampcount = creator.count('&')
         authorcount = 1 + andcount + ampcount
-        print(creator,andcount,ampcount)
+        #print(creator,andcount,ampcount)
         if authorcount > 2:
             creatorpart += "EtAl"
         if authorcount == 2:
@@ -261,12 +268,12 @@ class Record():
     """
     analyze fields, report errors and correct as necessary
     """
-
     if self.fields.get('editor') != None and self.fields.get('booktitle') == None:
       try:
         self.fields['booktitle'] = self.fields['title']
       except KeyError:
         self.errors.append("neither title nor booktitle")
+        self.fields['title'] = '{\\biberror{no title}}'
     pages = self.fields.get('pages')
     if pages != None:
       self.fields['pages'] = re.sub(r'([0-9])-([0-9])',r'\1--\2',pages)
@@ -292,8 +299,7 @@ class Record():
     """
     try:
         if len(self.errors)>0:
-            restrict =  True
-            if restrict==False or self.inkeysd.get(self.key):
+            if self.restrict==False or self.inkeysd.get(self.key):
                 print(self.key,'\n  '.join(['  ']+self.errors))
     except AttributeError:
         pass
@@ -363,6 +369,13 @@ class Record():
     protect capitals inside a word
     protect lone capitals
     """
+    if self.fields.get('title') is None:
+        if self.fields.get('booktitle') is None:
+            self.fields['title'] = "{\\biberror{no title}}"
+            self.errors.append(f"missing title in {self.key}")
+        else:
+            self.fields['title'] = self.fields['booktitle']
+
 
     for t in ('title','booktitle'):
       if self.fields.get(t) != None:
@@ -370,12 +383,12 @@ class Record():
         self.fields[t] = re.sub(r'([A-Z][a-z]*[A-Z]+)', r"{\1}" ,self.fields[t])
         self.fields[t] = re.sub(r' ([A-Z]) ', r" {{\1}} " ,self.fields[t])
 
+
   def checkvolumenumber(self):
     if self.typ == "book":
         m = bibpatterns.VOLUMEPATTERN.search(self.fields["title"])
-        if m != None:
+        if m is not None:
             vol = m.group(3)
-            print(vol)
             self.fields["volume"] = vol
             self.fields["title"] = self.fields["title"].replace(m.group(),'')
     if self.typ == "incollection":
@@ -662,6 +675,11 @@ class Record():
     output fields will be sorted alphabetically
     remove all fields which are in excludefields
     """
+    try:
+        self.typ
+    except AttributeError:
+        print("skipping phantom record, probably a comment")
+        return ''
     if self.restrict and self.key not in self.inkeysd:
         return ''
     s = """@%s{%s,\n\t%s\n}"""%(self.typ,
@@ -673,7 +691,7 @@ class Record():
                                     ]
                                 )
         )
-    s = s.replace(',,',',')
+    s = s.replace(',,', ',')
     return s
 
 
@@ -688,7 +706,7 @@ def normalize(s, inkeysd={}, restrict=False):
   rest = rest[::-1]
   #create the new bibtex records
   bibtexs = [Record(record,
-		    fromfile=True,
+		    bibtexformat=True,
                     inkeysd=inkeysd,
                     restrict=restrict,
                     reporting=[]

@@ -579,6 +579,26 @@
         \renewenvironment{table}{\setfootnoterule{0pt}\oldtable}{\endoldtable}
         \fi
 
+
+        \ifx\lsSeries\cogl
+        %\def\exfont{\normalsize\itshape}
+        \providecommand{\eachwordone}{\itshape} % only \gll
+
+        \let\oldtable\table   % footnotes in tables without horizontal line
+        \let\endoldtable\endtable
+        \renewenvironment{table}{\setfootnoterule{0pt}\oldtable}{\endoldtable}
+        \fi
+
+
+        \ifx\lsSeries\rcg
+        %\def\exfont{\normalsize\itshape}
+        \providecommand{\eachwordone}{\itshape} % only \gll
+
+        \let\oldtable\table   % footnotes in tables without horizontal line
+        \let\endoldtable\endtable
+        \renewenvironment{table}{\setfootnoterule{0pt}\oldtable}{\endoldtable}
+        \fi
+
         \ifx\lsSeries\pmwe
         \providecommand{\eachwordone}{\normalfont}
         \fi
